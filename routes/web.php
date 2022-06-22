@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\StudentClassroomController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,17 +31,17 @@ Route::middleware(['auth:sanctum', 'verified'])
         Route::middleware(['admin'])->group(function () {
             // classroom
             Route::resource('classroom', ClassroomController::class);
-            // // product gallery
-            // Route::resource('product.gallery', ProductGalleryController::class)->shallow()->only([
-            //     'index', 'create', 'store', 'destroy'
-            // ]);
-            // // transaction
-            // Route::resource('transaction', TransactionController::class)->only([
-            //     'index', 'show', 'edit', 'update'
-            // ]);
-            // // user
-            // Route::resource('user', UserController::class)->only([
-            //     'index', 'edit', 'update', 'destroy'
-            // ]);
+            // student
+            Route::resource('student', StudentController::class)->only([
+                'index', 'create', 'store', 'edit', 'update',
+            ]);
+            // payment
+            Route::resource('payment', PaymentController::class)->only([
+                'index', 'create', 'store', 'edit', 'update',
+            ]);
+            // student_classroom
+            Route::resource('classroom.student_classroom', StudentClassroomController::class)->shallow()->only([
+                'index', 'create', 'store', 'edit', 'update',
+            ]);
         });
     });

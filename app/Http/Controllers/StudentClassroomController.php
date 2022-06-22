@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classroom;
 use App\Models\StudentClassroom;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class StudentClassroomController extends Controller
      */
     public function index()
     {
-        //
+        return "input siswa dari classroom";
     }
 
     /**
@@ -22,7 +23,7 @@ class StudentClassroomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Classroom $classroom)
     {
         //
     }

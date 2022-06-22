@@ -22,6 +22,10 @@ class ClassroomController extends Controller
             return DataTables::of($query)
                 ->addColumn('action', function ($item) {
                     return '
+                        <a class="inline-block border border-teal-700-700 bg-teal-700 text-white rounded-md px-2 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-teal-800 focus:outline-none focus:shadow-outline"
+                            href="' . route('dashboard.classroom.student_classroom.index', $item->id) . '">
+                            Input Siswa
+                        </a>
                         <a class="inline-block border border-gray-700 bg-gray-700 text-white rounded-md px-2 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline"
                             href="' . route('dashboard.classroom.edit', $item->id) . '">
                             Edit
@@ -77,7 +81,7 @@ class ClassroomController extends Controller
      */
     public function edit(Classroom $classroom)
     {
-        //
+        return view('pages.classroom.edit', compact('classroom'));
     }
 
     /**
@@ -87,9 +91,12 @@ class ClassroomController extends Controller
      * @param  \App\Models\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Classroom $classroom)
+    public function update(ClassroomRequest $request, Classroom $classroom)
     {
-        //
+        $data = $request->all();
+        $classroom->update($data);
+
+        return redirect()->route('dashboard.classroom.index');
     }
 
     /**

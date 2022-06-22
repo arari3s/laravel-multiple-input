@@ -8,6 +8,7 @@
                     <a href="{{ route('dashboard.index') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
+
                 </div>
 
                 <!-- Navigation Links -->
@@ -15,10 +16,21 @@
                     <x-jet-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard.classroom.index') }}" :active="request()->routeIs('dashboard.classroom.index') ||
-                        request()->routeIs('dashboard.classroom.*')">
-                        {{ __('Kelas') }}
-                    </x-jet-nav-link>
+
+                    @if (Auth::user()->roles == 'ADMIN')
+                        <x-jet-nav-link href="{{ route('dashboard.classroom.index') }}" :active="request()->routeIs('dashboard.classroom.index') ||
+                            request()->routeIs('dashboard.classroom.*')">
+                            {{ __('Kelas') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('dashboard.student.index') }}" :active="request()->routeIs('dashboard.student.index') ||
+                            request()->routeIs('dashboard.student.*')">
+                            {{ __('Siswa') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('dashboard.payment.index') }}" :active="request()->routeIs('dashboard.payment.index') ||
+                            request()->routeIs('dashboard.payment.*')">
+                            {{ __('Pembayaran') }}
+                        </x-jet-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -158,6 +170,15 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">
                 {{ __('Dashboard') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('dashboard.classroom.index') }}" :active="request()->routeIs('dashboard.classroom.index')">
+                {{ __('Kelas') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('dashboard.student.index') }}" :active="request()->routeIs('dashboard.student.index')">
+                {{ __('Siswa') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('dashboard.payment.index') }}" :active="request()->routeIs('dashboard.payment.index')">
+                {{ __('Pembayaran') }}
             </x-jet-responsive-nav-link>
         </div>
 
