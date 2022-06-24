@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('student_payments', function (Blueprint $table) {
             $table->id();
 
+            $table->bigInteger('classrooms_id');
             $table->bigInteger('students_id');
             $table->bigInteger('payments_id');
 

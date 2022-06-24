@@ -25,7 +25,7 @@ class StudentClassroomRequest extends FormRequest
     public function rules()
     {
         return [
-            'students_id' => 'required',
+            'students_id.*' => 'required',
         ];
     }
 }

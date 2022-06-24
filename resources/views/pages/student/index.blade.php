@@ -7,7 +7,7 @@
 
     <x-slot name="script">
         <script>
-            // AJAZ DataTable
+            // AJAX DataTable
             var datatable = $('#crudTable').DataTable({
                 ajax: {
                     url: '{!! url()->current() !!}'
@@ -30,11 +30,19 @@
                         name: 'gender'
                     },
                     {
+                        data: 'address',
+                        name: 'address'
+                    },
+                    {
+                        data: 'phone',
+                        name: 'phone'
+                    },
+                    {
                         data: 'action',
                         name: 'action',
                         orderable: false,
                         searchable: false,
-                        width: '25%'
+                        width: '5%'
                     }
                 ]
             })
@@ -59,6 +67,8 @@
                                 <th>NIS</th>
                                 <th>Nama</th>
                                 <th>Jenis Kelamin</th>
+                                <th>Alamat</th>
+                                <th>Telp</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>

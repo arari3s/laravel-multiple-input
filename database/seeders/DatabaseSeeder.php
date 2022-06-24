@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             AdminUserSeeder::class,
             ClassroomSeeder::class,
             StudentSeeder::class,
+            PaymentSeeder::class,
         ]);
     }
 }

@@ -46,7 +46,7 @@
                                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
                             <select id="select2" data-width="100%" name="students_id[]" multiple="multiple">
                                 @foreach ($student as $item)
-                                    <option value="1">{{ $item->name }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -57,6 +57,11 @@
                             <button type="submit"
                                 class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">Add
                                 Siswa</button>
+
+                            <a href="{{ route('dashboard.classroom.student_classroom.index', $classroom->id) }}"
+                                class="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-4 ml-3 rounded shadow-lg">
+                                Cancel
+                            </a>
                         </div>
                     </div>
                 </form>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ClassroomRequest;
 use App\Models\Classroom;
-use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
 class ClassroomController extends Controller

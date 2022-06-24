@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Kelas &raquo; {{ $classroom->name }} &raquo; Siswa
+            Kelas &raquo; {{ $classroom->name }} &raquo; Input Siswa
         </h2>
     </x-slot>
 
@@ -26,7 +26,7 @@
                         name: 'action',
                         orderable: false,
                         searchable: false,
-                        width: '25%'
+                        width: '5%'
                     }
                 ]
             })
@@ -39,7 +39,12 @@
             <div class="mb-10">
                 <a href="{{ route('dashboard.classroom.student_classroom.create', $classroom->id) }}"
                     class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
-                    + Tambah Siswa
+                    + Input Siswa
+                </a>
+
+                <a href="{{ route('dashboard.classroom.index') }}"
+                    class="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-4 ml-3 rounded shadow-lg">
+                    Kembali
                 </a>
             </div>
             <div class="shadow overflow-hidden sm-rounded-md">

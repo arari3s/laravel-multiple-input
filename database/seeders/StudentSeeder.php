@@ -20,7 +20,7 @@ class StudentSeeder extends Seeder
 
         for ($i = 1; $i <= 50; $i++) {
             DB::table('students')->insert([
-                'nis' => $faker->randomDigit(),
+                'nis' => $faker->unique()->numberBetween(1, 50),
                 'name' => $faker->name(),
                 'phone' => $faker->phoneNumber(),
                 'gender' => $faker->randomElement(['Laki-laki', 'Perempuan']),

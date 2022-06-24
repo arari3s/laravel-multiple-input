@@ -11,6 +11,6 @@ class StudentPayment extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'payments_id', 'students_id'
+        'classrooms_id', 'students_id', 'payments_id',
     ];
 }

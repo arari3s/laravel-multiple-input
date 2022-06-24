@@ -59,10 +59,14 @@ class StudentClassroomController extends Controller
      */
     public function store(StudentClassroomRequest $request, Classroom $classroom)
     {
-        $data = $request->all();
-        StudentClassroom::create([
-            'classrooms_id' => $classroom->id,
-        ]);
+        $data = $request->input('students_id');
+
+        foreach ($data as $d) {
+            StudentClassroom::create([
+                'classrooms_id' => $classroom->id,
+                'students_id' => $d,
+            ]);
+        }
 
         return redirect()->route('dashboard.classroom.student_classroom.index', $classroom->id);
     }
@@ -109,6 +113,8 @@ class StudentClassroomController extends Controller
      */
     public function destroy(StudentClassroom $studentClassroom)
     {
-        //
+        $studentClassroom->delete();
+
+        return redirect()->route('dashboard.classroom.student_classroom.index', $studentClassroom->classrooms_id);
     }
 }
