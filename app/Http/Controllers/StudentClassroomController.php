@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudentClassroomRequest;
+use App\Http\Requests\StudentRequest;
 use App\Models\Classroom;
+use App\Models\Student;
 use App\Models\StudentClassroom;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class StudentClassroomController extends Controller
 {
@@ -13,9 +17,26 @@ class StudentClassroomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Classroom $classroom)
     {
-        return "input siswa dari classroom";
+        if (request()->ajax()) {
+            $query = StudentClassroom::with('student')->where('classrooms_id', $classroom->id);
+
+            return DataTables::of($query)
+                ->addColumn('action', function ($item) {
+                    return '
+                        <form class="inline-block" action="' . route('dashboard.student_classroom.destroy', $item->id) . '" method="POST">
+                            <button class="border border-red-500 bg-red-500 text-white rounded-md px-2 py-1 m-1 font-semibold transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline" >
+                                Hapus
+                            </button>
+                            ' . method_field('delete') . csrf_field() . '
+                        </form>
+                    ';
+                })
+                ->rawColumns(['action'])
+                ->make();
+        }
+        return view('pages.studentclassroom.index', compact('classroom'));
     }
 
     /**
@@ -25,7 +46,9 @@ class StudentClassroomController extends Controller
      */
     public function create(Classroom $classroom)
     {
-        //
+        $student = Student::all();
+
+        return view('pages.studentclassroom.create', compact('classroom', 'student'));
     }
 
     /**
@@ -34,9 +57,14 @@ class StudentClassroomController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StudentClassroomRequest $request, Classroom $classroom)
     {
-        //
+        $data = $request->all();
+        StudentClassroom::create([
+            'classrooms_id' => $classroom->id,
+        ]);
+
+        return redirect()->route('dashboard.classroom.student_classroom.index', $classroom->id);
     }
 
     /**

@@ -13,4 +13,10 @@ class StudentClassroom extends Model
     protected $fillable = [
         'classrooms_id', 'students_id'
     ];
+
+    // relationships one to many studens to student_classrooms
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'students_id', 'id');
+    }
 }

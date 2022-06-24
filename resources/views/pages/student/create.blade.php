@@ -30,8 +30,8 @@
                     @csrf
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label
-                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NIS</label>
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NIS <span
+                                    class="text-red-500">*</span></label>
                             <input value="{{ old('nis') }}" name="nis"
                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 type="number" placeholder="Student NIS">
@@ -40,8 +40,8 @@
 
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label
-                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NAMA</label>
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NAMA <span
+                                    class="text-red-500">*</span></label>
                             <input value="{{ old('name') }}" name="name"
                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 type="text" placeholder="Student Name">
@@ -51,7 +51,7 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">JENIS
-                                KELAMIN</label>
+                                KELAMIN <span class="text-red-500">*</span></label>
                             <select name="gender"
                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                 <option disabled selected>--- Select Gender ---</option>

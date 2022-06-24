@@ -33,15 +33,15 @@ Route::middleware(['auth:sanctum', 'verified'])
             Route::resource('classroom', ClassroomController::class);
             // student
             Route::resource('student', StudentController::class)->only([
-                'index', 'create', 'store', 'edit', 'update',
+                'index', 'create', 'store', 'edit', 'update'
             ]);
             // payment
             Route::resource('payment', PaymentController::class)->only([
-                'index', 'create', 'store', 'edit', 'update',
+                'index', 'create', 'store', 'edit', 'update'
             ]);
             // student_classroom
             Route::resource('classroom.student_classroom', StudentClassroomController::class)->shallow()->only([
-                'index', 'create', 'store', 'edit', 'update',
+                'index', 'create', 'store', 'destroy'
             ]);
         });
     });

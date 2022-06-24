@@ -18,9 +18,9 @@ return new class extends Migration
 
             $table->string('nis');
             $table->string('name');
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->string('gender');
-            $table->string('address');
+            $table->string('address')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
