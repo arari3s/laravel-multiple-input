@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Kelas &raquo; {{ $classroom->name }} &raquo; Siswa &raquo; Create
+            Siswa &raquo; {{ $student_classroom->student->name }} &raquo; Pembayaran &raquo; Create
         </h2>
     </x-slot>
 
@@ -11,7 +11,7 @@
         <script>
             $(document).ready(function() {
                 $('#select2').select2({
-                    placeholder: '-- Pilih nama siswa --'
+                    placeholder: '-- Pilih nama pembayaran --'
                 });
             });
         </script>
@@ -37,16 +37,18 @@
                         </div>
                     </div>
                 @endif
-                <form action="{{ route('dashboard.classroom.student-classroom.store', $classroom->id) }}" class="w-full"
-                    method="POST" enctype="multipart/form-data">
+                <form action="{{ route('dashboard.student-classroom.student-payment.store', $student_classroom->id) }}"
+                    class="w-full" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
                             <label
                                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
-                            <select id="select2" data-width="100%" name="students_id[]" multiple="multiple">
-                                @foreach ($student as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            <select id="select2" data-width="100%" name="payments_id[]" multiple="multiple">
+                                @foreach ($payment as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }} -
+                                        {{ number_format($item->price) }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -58,7 +60,7 @@
                                 class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">Add
                                 Siswa</button>
 
-                            <a href="{{ route('dashboard.classroom.student-classroom.index', $classroom->id) }}"
+                            <a href="{{ route('dashboard.student-classroom.student-payment.index', $student_classroom->id) }}"
                                 class="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-4 ml-3 rounded shadow-lg">
                                 Cancel
                             </a>

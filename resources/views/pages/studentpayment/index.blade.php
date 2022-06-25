@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Kelas &raquo; {{ $classroom->name }} &raquo; Input Siswa
+            Siswa &raquo; {{ $student_classroom->student->name }} &raquo; Input Pembayaran
         </h2>
     </x-slot>
 
@@ -18,15 +18,19 @@
                         width: '5%'
                     },
                     {
-                        data: 'student.name',
-                        name: 'student.name'
+                        data: 'studenclassroom.student.name',
+                        name: 'studenclassroom.student.name'
+                    },
+                    {
+                        data: 'payment.price',
+                        name: 'payment.price'
                     },
                     {
                         data: 'action',
                         name: 'action',
                         orderable: false,
                         searchable: false,
-                        width: '25%'
+                        width: '5%'
                     }
                 ]
             })
@@ -37,9 +41,9 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="mb-10">
-                <a href="{{ route('dashboard.classroom.student-classroom.create', $classroom->id) }}"
+                <a href="{{ route('dashboard.student-classroom.student-payment.create', $student_classroom->id) }}"
                     class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
-                    + Input Siswa
+                    + Input Pembayaran
                 </a>
 
                 <a href="{{ route('dashboard.classroom.index') }}"
@@ -54,6 +58,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nama</th>
+                                <th>Tagihan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>

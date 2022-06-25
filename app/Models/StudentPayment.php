@@ -11,6 +11,18 @@ class StudentPayment extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'classrooms_id', 'students_id', 'payments_id',
+        'student_classrooms_id', 'payments_id',
     ];
+
+    // relationships one to many studenclassroom to student_payment
+    public function studenclassroom()
+    {
+        return $this->belongsTo(StudentClassroom::class, 'student_classrooms_id', 'id');
+    }
+
+    // relationships one to many payments to student_payment
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class, 'payments_id', 'id');
+    }
 }

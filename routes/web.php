@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StudentClassroomController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentPaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,7 +41,11 @@ Route::middleware(['auth:sanctum', 'verified'])
                 'index', 'create', 'store', 'edit', 'update'
             ]);
             // student_classroom
-            Route::resource('classroom.student_classroom', StudentClassroomController::class)->shallow()->only([
+            Route::resource('classroom.student-classroom', StudentClassroomController::class)->shallow()->only([
+                'index', 'create', 'store', 'destroy'
+            ]);
+            // student_payment
+            Route::resource('student-classroom.student-payment', StudentPaymentController::class)->shallow()->only([
                 'index', 'create', 'store', 'destroy'
             ]);
         });
