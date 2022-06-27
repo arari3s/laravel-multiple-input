@@ -45,8 +45,6 @@ Route::middleware(['auth:sanctum', 'verified'])
                 'index', 'create', 'store', 'destroy'
             ]);
             // student_payment
-            Route::resource('student-classroom.student-payment', StudentPaymentController::class)->shallow()->only([
-                'index', 'create', 'store', 'destroy'
-            ]);
+            Route::resource('student-classroom.student-payment', StudentPaymentController::class)->shallow();
         });
     });

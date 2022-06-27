@@ -25,7 +25,18 @@ class StudentPaymentRequest extends FormRequest
     public function rules()
     {
         return [
-            'payments_id.*' => 'required',
+            'spp_id' => 'integer',
+            'sarana_id' => 'integer',
+            'pts1_id' => 'integer',
+            'pts2_id' => 'integer',
+            'pas_id' => 'integer',
+            'pat_id' => 'integer',
+            'infaq_id' => 'integer',
+            'pkl_id' => 'integer',
+            'ki_id' => 'integer',
+            'perpisahan_id' => 'integer',
+            'du_id' => 'integer',
+            'other_id' => 'integer',
         ];
     }
 }

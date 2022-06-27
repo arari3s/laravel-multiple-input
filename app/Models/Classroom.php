@@ -13,10 +13,4 @@ class Classroom extends Model
     protected $fillable = [
         'name', 'department'
     ];
-
-    // relationships one to many classrooms to student_classrooms
-    public function student_classrooms()
-    {
-        return $this->hasMany(StudentClassroom::class, 'classrooms_id', 'id');
-    }
 }

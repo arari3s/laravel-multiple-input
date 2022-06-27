@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div>
                 {{-- Error Handling --}}
                 @if ($errors->any())
@@ -31,20 +31,20 @@
                     @csrf
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label
-                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name <span
+                                    class="text-red-500">*</span></label>
                             <input value="{{ old('name') ?? $payment->name }}" name="name"
-                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                class="appearance-none block w-full lg:w-1/2 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 type="text" placeholder="Payment Name">
                         </div>
                     </div>
 
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label
-                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Payment</label>
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Payment
+                                <span class="text-red-500">*</span></label>
                             <input value="{{ old('price') ?? $payment->price }}" name="price"
-                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                class="appearance-none block w-full lg:w-1/2 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 type="number" placeholder="Payment Price">
                         </div>
                     </div>
@@ -54,6 +54,11 @@
                             <button type="submit"
                                 class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">Update
                                 Payment</button>
+
+                            <a href="{{ route('dashboard.payment.index') }}"
+                                class="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-4 ml-3 rounded shadow-lg">
+                                Cancel
+                            </a>
                         </div>
                     </div>
                 </form>

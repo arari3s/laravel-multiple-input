@@ -47,12 +47,12 @@
                     </h1>
                     <p class="caption-text mb-16 tracking-wide leading-7">
                         The page you’re looking for isn’t found. We<br class="sm:block hidden"> suggest you Back to
-                        Homepage.
+                        Dashboard.
                     </p>
                     <div class="flex justify-center">
                         <a href="{{ route('dashboard.index') }}"
                             class="btn-back inline-flex font-semibold text-white text-lg leading-7 py-4 px-6 rounded-xl focus:outline-none">Back
-                            to Homepage</a>
+                            to Dashboard</a>
                     </div>
                 </div>
             </div>

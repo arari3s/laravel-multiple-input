@@ -17,20 +17,64 @@ class PaymentSeeder extends Seeder
     {
         $payment = [
             [
-                'name' => 'SPP 2021/2022',
+                'name' => 'SPP X 2019/2020',
+                'price' => '160000',
+            ],
+            [
+                'name' => 'SPP XI 2020/2021',
+                'price' => '175000',
+            ],
+            [
+                'name' => 'SPP XII 2021/2022',
+                'price' => '185000',
+            ],
+            [
+                'name' => 'SPP X 2020/2021',
+                'price' => '175000',
+            ],
+            [
+                'name' => 'SPP XI 2021/2022',
+                'price' => '175000',
+            ],
+            [
+                'name' => 'SPP X 2021/2022',
                 'price' => '180000',
             ],
             [
-                'name' => 'SPP 2022/2023',
-                'price' => '140000',
+                'name' => 'DAFTAR ULANG',
+                'price' => '200000',
             ],
             [
-                'name' => 'SARANA',
+                'name' => 'SARANA 2019/2020',
+                'price' => '1200000',
+            ],
+            [
+                'name' => 'SARANA 2019/2020 BP',
+                'price' => '600000',
+            ],
+            [
+                'name' => 'SARANA 2020/2021',
+                'price' => '1100000',
+            ],
+            [
+                'name' => 'SARANA 2020/2021 BP',
+                'price' => '550000',
+            ],
+            [
+                'name' => 'SARANA 2021/2022',
                 'price' => '1250000',
             ],
             [
-                'name' => 'SARANA BP',
-                'price' => '650000',
+                'name' => 'SARANA 2021/2022 BP',
+                'price' => '625000',
+            ],
+            [
+                'name' => 'INFAQ 2021/2022',
+                'price' => '300000',
+            ],
+            [
+                'name' => 'LUNAS',
+                'price' => '0',
             ],
         ];
 

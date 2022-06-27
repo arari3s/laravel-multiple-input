@@ -18,7 +18,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div>
                 {{-- Error Handling --}}
                 @if ($errors->any())
@@ -42,9 +42,9 @@
                     @csrf
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label
-                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
-                            <select id="select2" data-width="100%" name="students_id[]" multiple="multiple">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name <span
+                                    class="text-red-500">*</span></label>
+                            <select id="select2" data-width="100%" name="students_id[]" multiple="multiple" required>
                                 @foreach ($student as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach

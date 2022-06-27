@@ -13,10 +13,4 @@ class Payment extends Model
     protected $fillable = [
         'name', 'price'
     ];
-
-    // relationships one to many payments to student_payments
-    public function student_payments()
-    {
-        return $this->hasMany(StudentPayment::class, 'payments_id', 'id');
-    }
 }

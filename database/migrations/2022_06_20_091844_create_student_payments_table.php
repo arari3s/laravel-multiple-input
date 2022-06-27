@@ -17,7 +17,18 @@ return new class extends Migration
             $table->id();
 
             $table->bigInteger('student_classrooms_id');
-            $table->bigInteger('payments_id');
+            $table->bigInteger('spp_id')->nullable();
+            $table->bigInteger('sarana_id')->nullable();
+            $table->bigInteger('pts1_id')->nullable();
+            $table->bigInteger('pts2_id')->nullable();
+            $table->bigInteger('pas_id')->nullable();
+            $table->bigInteger('pat_id')->nullable();
+            $table->bigInteger('infaq_id')->nullable();
+            $table->bigInteger('pkl_id')->nullable();
+            $table->bigInteger('ki_id')->nullable();
+            $table->bigInteger('perpisahan_id')->nullable();
+            $table->bigInteger('du_id')->nullable();
+            $table->bigInteger('other_id')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
